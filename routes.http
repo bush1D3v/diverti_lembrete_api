@@ -1,0 +1,87 @@
+## Lembretes
+
+### Options
+
+OPTIONS BASE_URL:HTTP_PORT/reminders
+
+Body: No Needed Body
+
+Response: Status 200 - No Response Body
+
+Response Headers: Access-Control-Allow-Methods: 'GET, POST, DELETE, OPTIONS'
+
+### POST
+
+POST BASE_URL:HTTP_PORT/reminders
+Content-Type: application/json
+
+Body:
+
+{
+  "text": "Reminder Example",
+  "date": "2024-07-26 23:30:52.421798",
+}
+
+Response: Status 201 - No Response Body
+
+Response Headers: Location: '/reminders/7036c693-5928-4f08-a013-ee5f086c76ff'
+
+###
+# GET List of Reminders
+# This endpoint retrieves a list of reminders. You can filter the results using query parameters.
+# Query Parameters:
+# - offset: The number of items to skip before starting to collect the result set.
+# - limit: The numbers of items to return.
+# - emotion: Filter reminders by a specific emotion.
+#
+# Example: GET BASE_URL:HTTP_PORT/reminders?offset=0&limit=10&emotion=happy
+#
+POST BASE_URL:HTTP_PORT/reminders
+Content-Type: application/json
+
+Body: No Needed Body
+
+{
+	"statusCode": 200,
+	"data": [
+		{
+			"id": "bf3cbfe7-0c32-4ffb-a227-e74c45576980",
+			"text": "Lembrar de convidar a Bruna para uma noite de puro glamour e sofisticação. ✨🍷🌹",
+			"emotion": "luxury",
+			"date": "2024-07-17 13:19:46"
+		},
+		{
+			"id": "b790055f-54a6-4171-bc22-f992d140a98d",
+			"text": "Hoje, às 20 horas, vou fazer a lição de casa com muita alegria! ✨📚😁",
+			"emotion": "happy",
+			"date": "2024-07-17 06:15:09"
+		}
+	]
+}
+
+### GET Detail
+
+GET BASE_URL:HTTP_PORT/reminders/:id
+Content-Type: application/json
+
+Body: No Needed Body
+
+Response:
+
+{
+	"statusCode": 200,
+	"data": {
+		"id": "0a96e35f-dc2c-4c8f-b822-d96093418202",
+		"text": "Vamos arrasar nas lições de casa às 20 horas e garantir um futuro brilhante! 🌟📚😊",
+		"emotion": "happy",
+		"date": "2024-07-17 06:15:09"
+	}
+}
+
+### DELETE
+
+DELETE BASE_URL:HTTP_PORT/reminders/:id
+
+Body: No Needed Body
+
+Response: Status 200 - No Response Body

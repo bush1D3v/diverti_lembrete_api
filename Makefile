@@ -1,0 +1,2 @@
+run:
+    composer start
