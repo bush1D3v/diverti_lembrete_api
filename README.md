@@ -9,7 +9,7 @@
 
 ## 🔍 Sobre o Projeto
 
-O **DivertiLembrete** é uma aplicação de **histórico profissional**, onde tem o objetivo de reunir **formações**, **projetos** e **informações profissionais** e **sobre o desenvolvedor** num geral.
+O **DivertiLembrete** é uma aplicação de lembretes, feita para criar lembretes baseados nos enviados pelo usuário, os **pré-processando com a Openai** apartir de uma **emoção requisitada** ao usuário.
 
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
 
