@@ -6,3 +6,4 @@
 !/logs/README.md
 .phpunit.result.cache
 .env
+reminders.json
