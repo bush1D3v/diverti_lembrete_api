@@ -14,7 +14,7 @@ class DeleteReminderAction extends ReminderAction
      */
     protected function action(Request $request, Response $response): Response
     {
-        $reminderId = (int) $this->resolveArg('id');
+        $reminderId = (string) $this->resolveArg('id');
         $this->reminderRepository->delete($reminderId);
 
         $this->logger->info(sprintf("Lembrete do id %s foi deletado.", $reminderId));
