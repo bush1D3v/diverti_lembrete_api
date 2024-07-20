@@ -20,6 +20,7 @@ O **DivertiLembrete** é uma aplicação de lembretes, feita para criar lembrete
    <img align='center' height='70' width='70' title='Docker' alt='docker' src='https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg' />&nbsp;&nbsp;&nbsp;
    <img align='center' height='50' width='50' title='Cors' alt='cors' src='https://github.com/bush1D3v/101acessorios_api/assets/133554156/3b4cccec-065e-428a-a663-1c5939404c1a' /> &nbsp;&nbsp;&nbsp;
    <img align='center' height='48' width='48' title='Insomnia' alt='insomnia' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/75a3fffd-792e-4250-8ef5-2abb615e38a0' /> &nbsp;
+   <img align='center' height='48' width='48' title='RabbitMQ' alt='rabbitmq' src='https://github.com/user-attachments/assets/3ee36923-d3e0-44bc-a11c-8ca71fbbc001' /> &nbsp;
 </div>
 
 ## 🏗 Estrutura e Arquitetura
