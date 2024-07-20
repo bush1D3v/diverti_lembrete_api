@@ -14,8 +14,8 @@ class ViewReminderAction extends ReminderAction
      */
     protected function action(Request $request, Response $response): Response
     {
-        $reminderId = (int) $this->resolveArg('id');
-        $reminder = $this->reminderRepository->findReminderOfId($reminderId);
+        $reminderId = (string) $this->resolveArg('id');
+        $reminder = $this->reminderRepository->findById($reminderId);
 
         $this->logger->info(sprintf("Lembrete do id %s foi acessado.", $reminderId));
 
