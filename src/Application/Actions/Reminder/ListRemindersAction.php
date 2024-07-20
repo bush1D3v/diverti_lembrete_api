@@ -16,13 +16,13 @@ class ListRemindersAction extends ReminderAction
     protected function action(Request $request, Response $response): Response
     {
         $queryParams = $request->getQueryParams();
-        $limit = isset($queryParams['limit']) ? (int) $queryParams['limit'] : 10; 
-        $offset = isset($queryParams['offset']) ? (int) $queryParams['offset'] : 0;
+        $page = $queryParams['page'] ?? '1';
         $emotion = $queryParams['emotion'] ?? null;
+        $checked = $queryParams['checked'] ?? null;
 
-        $reminders = $this->reminderRepository->findAll($limit, $offset, $emotion);
+        $reminders = $this->reminderRepository->findAll($page, $emotion, $checked);
 
-        if (empty($reminders)) {
+        if (empty($reminders['reminders'])) {
             $this->logger->info("Nenhum lembrete foi encontrado.");
 
             throw new ReminderNotFoundException();
