@@ -15,10 +15,10 @@ class CheckRemindersAction extends ReminderAction
     protected function action(Request $request, Response $response): Response
     {
         $reminderId = (string) $this->resolveArg('id');
-        $this->reminderRepository->check($reminderId);
+        $check = $this->reminderRepository->check($reminderId);
 
         $this->logger->info(sprintf("Lembrete do id %s teve o estado de 'check' atualizado.", $reminderId));
 
-        return $response->withStatus(200);
+        return $this->respondWithData($check);
     }
 }
