@@ -12,6 +12,10 @@ use Slim\Factory\ServerRequestCreatorFactory;
 
 require __DIR__ . '/../vendor/autoload.php';
 
+$queueScriptPath = __DIR__ . '/Queue/Reminder/run_process_reminder.php';
+$command = "php $queueScriptPath";
+$pid = exec("{$command} > /dev/null 2>&1 & echo $!");
+
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../')->load();
 
 $containerBuilder = new ContainerBuilder();
