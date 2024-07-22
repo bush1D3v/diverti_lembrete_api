@@ -19,8 +19,14 @@ return function (App $app) {
         });
         $group->post('', InsertReminderAction::class);
         $group->get('', ListRemindersAction::class);
+        $group->options('/{id}', function (Request $request, Response $response) {
+            return $response->withHeader('Access-Control-Allow-Methods', 'GET, DELETE, OPTIONS');
+        });
         $group->get('/{id}', ViewReminderAction::class);
-        $group->post('/{id}/check', CheckRemindersAction::class);
         $group->delete('/{id}', DeleteReminderAction::class);
+        $group->options('/{id}/check', function (Request $request, Response $response) {
+            return $response->withHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+        });
+        $group->post('/{id}/check', CheckRemindersAction::class);
     });
 };
