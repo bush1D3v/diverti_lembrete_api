@@ -1,9 +1,9 @@
 <h1 justify='center'>
-  DivertiLembrete Front
+  DivertiLembrete Back
 </h1>
 
 ![License](https://img.shields.io/static/v1?label=license&message=MIT&color=orange) &nbsp;
-![Bun version](https://img.shields.io/static/v1?label=bun&message=v1.1.20&color=yellow) &nbsp;
+![Composer version](https://img.shields.io/static/v1?label=composer&message=v2.7.7&color=yellow) &nbsp;
 ![Repository size](https://img.shields.io/github/repo-size/bush1D3v/DivertiLembrete_Back?color=blue) &nbsp;
 ![Pull request](https://img.shields.io/static/v1?label=PR&message=welcome&color=green)
 
@@ -12,20 +12,15 @@
 O **DivertiLembrete** é uma aplicação de lembretes, feita para criar lembretes baseados nos enviados pelo usuário, os **pré-processando com a Openai** apartir de uma **emoção requisitada** ao usuário.
 
 ## 🛠️ Tecnologias e Ferramentas Utilizadas
+
 <div align='center'>
-   <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/vuejs/vuejs-original.svg' />&nbsp;&nbsp;
-   <img align='center' height='50' width='50' title='Shadcn-vue' alt='shadcnvue' src='https://github.com/user-attachments/assets/1d2298ae-03ea-4392-b0d2-e3fc12908bc7' />&nbsp;&nbsp;&nbsp;&nbsp;
-   <img align='center' height='50' width='50' title='Pinia' alt='pinia' src='https://github.com/user-attachments/assets/abb5c37c-372d-4f29-b4ba-27fbe1d7c970' />&nbsp;&nbsp;
-   <img align='center' height='55' width='55' title='Mitt' alt='mitt' src='https://github.com/user-attachments/assets/f37880f9-d7f9-42ff-ad39-8c3d8fbbecf1' />&nbsp;
-   <img align='center' height='54' width='68' title='Bun.js' alt='bunjs' src='https://github.com/devicons/devicon/blob/master/icons/bun/bun-original.svg' />
-   <img align='center' height='64' width='78' title='Node.js' alt='nodejs' src='https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg' />&nbsp;
-   <img align='center' height='50' width='68' title='Tailwindcss' alt='tailwindcss' src='https://github.com/devicons/devicon/blob/master/icons/tailwindcss/tailwindcss-original.svg' />&nbsp;
-   <img align='center' height='50' width='70' title='TypeScript' alt='typescript' src='https://github.com/devicons/devicon/blob/master/icons/typescript/typescript-original.svg' />&nbsp;&nbsp;
-   <img align='center' height='50' width='59' title='Zod' alt='zod' src='https://github.com/bush1D3v/tsbank_front/assets/133554156/5a769805-23e2-4f8b-904d-034b25a982a6' />&nbsp;&nbsp;
-   <img align='center' height='68' width='72' title='Potcss' alt='postcss' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/85b7c73b-e181-4c95-b9de-a8e0ba0523d3' />
-   <img align='center' height='50' width='70' title='Html5' alt='html5' src='https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg' />
-   <img align='center' height='50' width='70' title='CSS3' alt='css3' src='https://github.com/devicons/devicon/blob/master/icons/css3/css3-original.svg' />
-   <img align='center' height='50' width='70' title='JavaScript' alt='javascript' src='https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg' />&nbsp;
+   <img align='center' height='50' width='50' title='Slim' alt='slim' src='https://github.com/user-attachments/assets/1dd6e453-3ce4-44ea-ae54-85e35c636813' />
+   <img align='center' height='55' width='55' title='Openai API' alt='openai api' src='https://github.com/user-attachments/assets/5726c1a7-ac47-42e3-aec1-47b2a50aec2b' /> &nbsp;
+   <img align='center' height='55' width='55' title='PHP' alt='php' src='https://github.com/user-attachments/assets/3cd70f99-efb4-49e2-9dd9-eb9640f40c11' />&nbsp;&nbsp;
+   <img align='center' height='70' width='70' title='Docker' alt='docker' src='https://github.com/devicons/devicon/blob/master/icons/docker/docker-plain.svg' />&nbsp;&nbsp;&nbsp;
+   <img align='center' height='50' width='50' title='Cors' alt='cors' src='https://github.com/bush1D3v/101acessorios_api/assets/133554156/3b4cccec-065e-428a-a663-1c5939404c1a' /> &nbsp;&nbsp;&nbsp;
+   <img align='center' height='48' width='48' title='Insomnia' alt='insomnia' src='https://github.com/bush1D3v/my_portfolio/assets/133554156/75a3fffd-792e-4250-8ef5-2abb615e38a0' /> &nbsp;
+   <img align='center' height='48' width='48' title='RabbitMQ' alt='rabbitmq' src='https://github.com/user-attachments/assets/3ee36923-d3e0-44bc-a11c-8ca71fbbc001' /> &nbsp;
 </div>
 
 ## 🏗 Estrutura e Arquitetura
@@ -47,16 +42,16 @@ Antes de começar, você **deverá** forkar o repositório do projeto para **seu
 Após o Fork, você **precisará** clonar o repositório forkado para seu **ambiente de desenvolvimento local**:
 
 ```
-git clone https://github.com/{seu-usuario}/DivertiLembrete_Front.git
-cd DivertiLembrete_Front
+git clone https://github.com/{seu-usuario}/DivertiLembrete_Back.git
+cd DivertiLembrete_Back
 ```
 
 ### ⏬ Instalando Dependências
 
-Certifique-se de ter Nodejs e bun instalados no seu sistema. Em seguida, instale as dependências necessárias:
+Certifique-se de ter Composer e PHP instalados no seu sistema. Em seguida, instale as dependências necessárias:
 
 ```
-bun install
+composer install
 ```
 
 
