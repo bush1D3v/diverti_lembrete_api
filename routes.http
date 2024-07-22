@@ -87,13 +87,14 @@ Response:
 POST BASE_URL:HTTP_PORT/reminders/:id/check
 Content-Type: application/json
 
-Body:
+Body: No Needed Body
+
+Response:
 
 {
-	"check": true
+	"statusCode": 200,
+	"data": true
 }
-
-Response: Status 200 - No Response Body
 
 ### DELETE
 
