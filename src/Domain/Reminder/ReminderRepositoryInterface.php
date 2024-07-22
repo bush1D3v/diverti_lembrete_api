@@ -40,5 +40,5 @@ interface ReminderRepositoryInterface
      * @return void
      * @throws ReminderNotFoundException
      */
-    public function check(string $id): void;
+    public function check(string $id): bool;
 }
