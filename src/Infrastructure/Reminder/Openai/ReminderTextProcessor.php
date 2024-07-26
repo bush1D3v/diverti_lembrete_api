@@ -21,10 +21,6 @@ class ReminderTextProcessor
      */
     public function openAIReminderTextProcessor(string $reminderText, string $reminderEmotion): string 
     {
-        if (empty($reminderText)) throw new \InvalidArgumentException("O texto não pode estar vazio.");
-
-        if (empty($reminderEmotion)) throw new \InvalidArgumentException("A emoção não pode estar vazia.");
-
         $prompt = sprintf(
             'Customize this reminder: "%s" based on this emotion: "%s". 
             I need a reminder with high emotional impact, including emojis in the reminder, not inserting this in the middle of the text.
