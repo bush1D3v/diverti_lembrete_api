@@ -33,6 +33,8 @@ Response Headers: Location: '/reminders/7036c693-5928-4f08-a013-ee5f086c76ff'
 # - page: The number of page, based on limit = 10 and offset = (page * 10)
 # - checked: Filter reminders by a specific boolean check state.
 # - emotion: Filter reminders by a specific emotion.
+# - limit: The numbers of items to return.
+# - offset: The number of items to skip before starting to collect the result set.
 #
 # Example: GET BASE_URL:HTTP_PORT/reminders?page=3&checked=true&emotion=sad
 #
@@ -81,10 +83,36 @@ Response:
 	}
 }
 
+### GET Count
 
-### POST Check
+GET BASE_URL:HTTP_PORT/reminders/count
+Content-Type: application/json
 
-POST BASE_URL:HTTP_PORT/reminders/:id/check
+Body: No Needed Body
+
+Response:
+
+{
+	"statusCode": 200,
+	"data": {
+		"total": 51,
+		"checks": 5,
+		"unchecks": 46,
+		"happiness": 39,
+		"sad": 1,
+		"angry": 4,
+		"anxiety": 1,
+		"envy": 1,
+		"shame": 1,
+		"fear": 1,
+		"disgust": 1,
+		"boredom": 2
+	}
+}
+
+### PATCH Check
+
+PATCH BASE_URL:HTTP_PORT/reminders/:id/check
 Content-Type: application/json
 
 Body: No Needed Body
