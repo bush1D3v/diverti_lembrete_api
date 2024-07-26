@@ -44,11 +44,8 @@ class ReminderRepository implements ReminderRepositoryInterface
      * 
      * {@inheritdoc}
      */
-    public function findAll(string $page = '1', string $emotion = null, string $checked = null): array
+    public function findAll(string $page = '1', string $offset = '0', string $limit = '10', string $emotion = null, string $checked = null): array
     {
-        $limit = 10;
-        $offset = 0;
-
         if ($page > 1) {
             $offset = ($page - 1) * $limit;
         }
@@ -73,7 +70,7 @@ class ReminderRepository implements ReminderRepositoryInterface
             return $a->getDate() <=> $b->getDate();
         });
 
-        $reminders = array_slice($reminders, $offset, $limit);
+        $reminders = array_slice($reminders, intval($offset), intval($limit));
 
         return [
             'reminders' => array_values($reminders),
@@ -107,8 +104,11 @@ class ReminderRepository implements ReminderRepositoryInterface
     {
         $reminderId = Uuid::uuid4()->toString();
         $reminderText = $reminder['text'];
+        if (empty($reminderText)) throw new \InvalidArgumentException("O texto não pode estar vazio.");
         $reminderEmotion = $reminder['emotion'];
+        if (empty($reminderEmotion)) throw new \InvalidArgumentException("A emoção não pode estar vazia.");
         $reminderDate =  new \DateTime($reminder['date']);
+        if (empty($reminderDate)) throw new \InvalidArgumentException("A data não pode estar vazia.");
         $reminderCheck = false;
         $this->queue->sendReminder($reminderId, $reminderText, $reminderEmotion, $reminderDate, $reminderCheck);
 
@@ -147,5 +147,64 @@ class ReminderRepository implements ReminderRepositoryInterface
         $this->jsonFunctions->writeRemindersToFile($reminders);
 
         return $reminders[$id]->getCheck();
+    }
+
+    /**
+     * Count the total number of reminders and your derivated types (emotions, checks and unchecks).
+     * 
+     * {@inheritdoc}
+     */
+    public function count(): array
+    {
+        $reminders = $this->jsonFunctions->readRemindersFromFile();
+        $totalReminders = count($reminders);
+        $totalChecks = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getCheck();
+        });
+        $totalUnchecks = array_filter($reminders, function (Reminder $reminder) {
+            return !$reminder->getCheck();
+        });
+        $totalHappiness = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getEmotion() === 'happiness';
+        });
+        $totalSad = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getEmotion() === 'sad';
+        });
+        $totalAngry = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getEmotion() === 'angry';
+        });
+        $totalAnxiety = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getEmotion() === 'anxiety';
+        });
+        $totalEnvy = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getEmotion() === 'envy';
+        });
+        $totalShame = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getEmotion() === 'shame';
+        });
+        $totalFear = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getEmotion() === 'fear';
+        });
+        $totalDisgust = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getEmotion() === 'disgust';
+        });
+        $totalBoredom = array_filter($reminders, function (Reminder $reminder) {
+            return $reminder->getEmotion() === 'boredom';
+        });
+
+        return [
+            'total' => $totalReminders,
+            'checks' => count($totalChecks),
+            'unchecks' => count($totalUnchecks),
+            'happiness' => count($totalHappiness),
+            'sad' => count($totalSad),
+            'angry' => count($totalAngry),
+            'anxiety' => count($totalAnxiety),
+            'envy' => count($totalEnvy),
+            'shame' => count($totalShame),
+            'fear' => count($totalFear),
+            'disgust' => count($totalDisgust),
+            'boredom' => count($totalBoredom),
+        ];
     }
 }
